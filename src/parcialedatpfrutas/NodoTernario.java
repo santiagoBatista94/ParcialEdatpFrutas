@@ -13,17 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NodoTernario {
+
     private Fruta fruta;
-     private NodoTernario izquierdo;
+    private NodoTernario izquierdo;
     private NodoTernario medio;
     private NodoTernario derecho;
 
-     public NodoTernario(Fruta fruta) {
+    public NodoTernario(Fruta fruta) {
         this.fruta = fruta;
         izquierdo = null;
         medio = null;
         derecho = null;
     }
+
     public Fruta getFruta() {
         return fruta;
     }
@@ -56,8 +58,4 @@ public class NodoTernario {
         this.derecho = derecho;
     }
 
-    
-    
-
-    
-    }
+}

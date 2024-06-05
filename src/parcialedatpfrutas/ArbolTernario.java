@@ -24,34 +24,22 @@ public class ArbolTernario {
         raiz = insertarFrutaRecursivo(raiz, fruta);
     }
 
-//    private NodoTernario insertarFrutaRecursivo(NodoTernario nodo, Fruta fruta) {
-//        if (nodo == null) {
-//            return new NodoTernario(fruta);
-//        }
-//
-//        if (fruta.getNombre().compareTo(nodo.getFruta().getNombre()) < 0) {
-//            nodo.setIzquierdo(insertarFrutaRecursivo(nodo.getIzquierdo(), fruta));
-//        } else if (fruta.getNombre().compareTo(nodo.getFruta().getNombre()) > 0) {
-//            nodo.setDerecho(insertarFrutaRecursivo(nodo.getDerecho(), fruta));
-//        } else {
-//            nodo.setMedio(insertarFrutaRecursivo(nodo.getMedio(), fruta));
-//        }
-//
-//        return nodo;
-//    }
     private NodoTernario insertarFrutaRecursivo(NodoTernario nodo, Fruta fruta) {
         if (nodo == null) {
             return new NodoTernario(fruta);
         }
-
+// ordena por categoria  "ácida" ,"dulce", o "mixta"
         int comparacion = fruta.getCategoria().compareTo(nodo.getFruta().getCategoria());
 
-        if (comparacion < 0) {
-            nodo.setIzquierdo(insertarFrutaRecursivo(nodo.getIzquierdo(), fruta));
-        } else if (comparacion > 0) {
+        if (comparacion <0 ) {
+            nodo.setIzquierdo(insertarFrutaRecursivo(nodo.getIzquierdo(), fruta));// acida
+//            System.out.println("comparacion izq : " + comparacion + "catergoria: " + fruta.getCategoria()+ "nodo: " + nodo.getFruta().getCategoria());
+        } else if (comparacion > 0) { // dulce
+//            System.out.println("comparacion der : " + comparacion + "catergoria: " + fruta.getCategoria() + "nodo: " + nodo.getFruta().getCategoria());
             nodo.setDerecho(insertarFrutaRecursivo(nodo.getDerecho(), fruta));
         } else {
-            nodo.setMedio(insertarFrutaRecursivo(nodo.getMedio(), fruta));
+//            System.out.println("comparacion medio : " + comparacion + "catergoria: " + fruta.getCategoria() + "nodo: " + nodo.getFruta().getCategoria());
+            nodo.setMedio(insertarFrutaRecursivo(nodo.getMedio(), fruta));// mixta
         }
 
         return nodo;
@@ -61,21 +49,7 @@ public class ArbolTernario {
         return buscarFrutaRecursivo(raiz, nombre);
     }
 
-//    private boolean buscarFrutaRecursivo(NodoTernario nodo, String nombre) {
-//        if (nodo == null) {
-//            return false;
-//        }
-//
-//        if (nodo.getFruta().getNombre().equals(nombre)) {
-//            return true;
-//        } else if (nombre.compareTo(nodo.getFruta().getNombre()) < 0) {
-//            return buscarFrutaRecursivo(nodo.getIzquierdo(), nombre);
-//        } else if (nombre.compareTo(nodo.getFruta().getNombre()) > 0) {
-//            return buscarFrutaRecursivo(nodo.getDerecho(), nombre);
-//        } else {
-//            return buscarFrutaRecursivo(nodo.getMedio(), nombre);
-//        }
-//    }
+
     private boolean buscarFrutaRecursivo(NodoTernario nodo, String nombre) {
         if (nodo == null) {
             return false;
@@ -106,6 +80,7 @@ public class ArbolTernario {
         if (nodo.getFruta().getCategoria().equals(categoria)) {
             System.out.println(nodo.getFruta().getNombre());
         }
+//        System.out.println("Categoria buscada: " + categoria + " categoria Nodo: " + nodo.getFruta().getCategoria());
 
         mostrarPorCategoriaRecursivo(nodo.getMedio(), categoria);
 

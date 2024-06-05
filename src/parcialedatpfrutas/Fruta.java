@@ -11,7 +11,7 @@ package parcialedatpfrutas;
  */
 public class Fruta {
     private String nombre;
-    private String categoria;
+    private String categoria; // Puede ser "dulce", "ácida" o "mixta"
 
     public Fruta(String nombre, String categoria) {
         this.nombre = nombre;
