@@ -74,10 +74,11 @@ public class Menu {
                     break;
 
                 case 3:
-                    System.out.print("Ingrese el nombre de la fruta a buscar: ");
-                    String nombreBuscar = scanner.nextLine();
-                    arbol.buscarFruta(nombreBuscar);
-
+                    System.out.print("ingrese Nombre ");
+                    String nombreMostrar= scanner.nextLine();
+                    
+                    arbol.mostrarPorNombre(nombreMostrar);
+                    break;
                 case 4:
                     System.out.println("Saliendo del programa...");
                     break;
