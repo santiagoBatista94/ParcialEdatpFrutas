@@ -33,38 +33,45 @@ public class ArbolTernario {
 
         if (comparacion <0 ) {
             nodo.setIzquierdo(insertarFrutaRecursivo(nodo.getIzquierdo(), fruta));// acida
-//            System.out.println("comparacion izq : " + comparacion + "catergoria: " + fruta.getCategoria()+ "nodo: " + nodo.getFruta().getCategoria());
+            System.out.println("comparacion izq : " + comparacion + "catergoria: " + fruta.getCategoria()+ "nodo: " + nodo.getFruta().getCategoria());
         } else if (comparacion > 0) { // dulce
-//            System.out.println("comparacion der : " + comparacion + "catergoria: " + fruta.getCategoria() + "nodo: " + nodo.getFruta().getCategoria());
+            System.out.println("comparacion der : " + comparacion + "catergoria: " + fruta.getCategoria() + "nodo: " + nodo.getFruta().getCategoria());
             nodo.setDerecho(insertarFrutaRecursivo(nodo.getDerecho(), fruta));
         } else {
-//            System.out.println("comparacion medio : " + comparacion + "catergoria: " + fruta.getCategoria() + "nodo: " + nodo.getFruta().getCategoria());
+            System.out.println("comparacion medio : " + comparacion + "catergoria: " + fruta.getCategoria() + "nodo: " + nodo.getFruta().getCategoria());
             nodo.setMedio(insertarFrutaRecursivo(nodo.getMedio(), fruta));// mixta
         }
 
         return nodo;
     }
     
-    public boolean buscarFruta(String nombre) {
-        return buscarFrutaRecursivo(raiz, nombre);
+    public void buscarFruta(String nombre) {
+        buscarFrutaRecursivo(raiz, nombre);
     }
 
 
-    private boolean buscarFrutaRecursivo(NodoTernario nodo, String nombre) {
-        if (nodo == null) {
-            return false;
-        }
+    private void buscarFrutaRecursivo(NodoTernario nodo, String nombre) {
+    Fruta frutaencontrada = new Fruta();
+    int comparacion = 0;
+    
+    if (nodo == null) {
+        System.out.println("La fruta no está en el mercado");
+        return;
+    }
 
-        int comparacion = nombre.compareTo(nodo.getFruta().getNombre());
-
-        if (comparacion == 0) {
-            return true;
+    Fruta fruta = nodo.getFruta();
+    if (fruta != null) {
+        if (nombre.compareTo(fruta.getNombre()) == 0) {
+            System.out.println("La fruta " + nombre + " se encontró en: " + nodo.getFruta().getCategoria());
         } else if (comparacion < 0) {
-            return buscarFrutaRecursivo(nodo.getIzquierdo(), nombre);
+            buscarFrutaRecursivo(nodo.getIzquierdo(), nombre);
         } else {
-            return buscarFrutaRecursivo(nodo.getDerecho(), nombre);
+            buscarFrutaRecursivo(nodo.getDerecho(), nombre);
         }
+    } else {
+        System.out.println("La fruta no tiene nombre");
     }
+}
     
     public void mostrarPorCategoria(String categoria) {
         mostrarPorCategoriaRecursivo(raiz, categoria);

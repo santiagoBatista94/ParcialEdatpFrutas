@@ -27,7 +27,8 @@ public class Menu {
             System.out.println("=== Menú ===");
             System.out.println("1. Insertar Fruta");
             System.out.println("2. Mostrar Frutas por Categoría");
-            System.out.println("3. Salir");
+            System.out.println("3. buscar futa por nombre");
+            System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Consumir el salto de línea
@@ -71,14 +72,20 @@ public class Menu {
                     System.out.println("Frutas de la categoría " + categoriaMostrar + ":");
                     arbol.mostrarPorCategoria(categoriaMostrar);
                     break;
+
                 case 3:
+                    System.out.print("Ingrese el nombre de la fruta a buscar: ");
+                    String nombreBuscar = scanner.nextLine();
+                    arbol.buscarFruta(nombreBuscar);
+
+                case 4:
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
                     System.out.println("Opción no válida. Intente de nuevo.");
             }
 
-        } while (opcion != 3);
+        } while (opcion != 4);
 
         scanner.close();
     }

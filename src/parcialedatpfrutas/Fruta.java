@@ -18,6 +18,9 @@ public class Fruta {
         this.categoria = categoria;
     }
 
+    public Fruta() {
+    }
+
     public String getNombre() {
         return nombre;
     }
