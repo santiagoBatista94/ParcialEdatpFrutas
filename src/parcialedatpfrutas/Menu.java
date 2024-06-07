@@ -47,6 +47,8 @@ public class Menu {
                     arbol.insertarFruta(fruta2);
                     Fruta fruta3 = new Fruta("pera", "acida");
                     arbol.insertarFruta(fruta3);
+                    Fruta fruta122 = new Fruta("manzana", "dulce");
+                    arbol.insertarFruta(fruta122);
                     Fruta fruta4 = new Fruta("banana", "mixta");
                     arbol.insertarFruta(fruta4);
                     Fruta fruta5 = new Fruta("melon", "dulce");
