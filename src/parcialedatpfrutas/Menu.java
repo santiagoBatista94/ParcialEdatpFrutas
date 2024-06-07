@@ -77,7 +77,7 @@ public class Menu {
                     System.out.print("ingrese Nombre ");
                     String nombreMostrar= scanner.nextLine();
                     
-                    arbol.mostrarPorNombre(nombreMostrar);
+                    arbol.buscarPorNombre(nombreMostrar);
                     break;
                 case 4:
                     System.out.println("Saliendo del programa...");

@@ -31,9 +31,9 @@ public class ArbolTernario {
 // ordena por categoria  "ácida" ,"dulce", o "mixta"
         int comparacion = fruta.getCategoria().compareTo(nodo.getFruta().getCategoria());
 
-        if (comparacion <0 ) {
+        if (comparacion < 0) {
             nodo.setIzquierdo(insertarFrutaRecursivo(nodo.getIzquierdo(), fruta));// acida
-            System.out.println("comp izq : " + comparacion + " Fruta a Insertar: " + fruta+ " nodo: " + nodo.getFruta());
+            System.out.println("comp izq : " + comparacion + " Fruta a Insertar: " + fruta + " nodo: " + nodo.getFruta());
         } else if (comparacion > 0) { // dulce
             System.out.println("comp der : " + comparacion + " Fruta a Insertar: " + fruta + " nodo: " + nodo.getFruta());
             nodo.setDerecho(insertarFrutaRecursivo(nodo.getDerecho(), fruta));
@@ -44,28 +44,28 @@ public class ArbolTernario {
 
         return nodo;
     }
-    
 
-      public void mostrarPorNombre(String nombre) {
-        mostrarPorNombreRecursivo(raiz, nombre);
+    public void buscarPorNombre(String nombre) {
+        buscarPorNombreRecursivo(raiz, nombre);
     }
 
-    private void mostrarPorNombreRecursivo(NodoTernario nodo, String nombre) {
+    private void buscarPorNombreRecursivo(NodoTernario nodo, String nombre) {
         if (nodo == null) {
+           
             return;
         }
 
-        mostrarPorNombreRecursivo(nodo.getIzquierdo(), nombre);
-
         if (nodo.getFruta().getNombre().equals(nombre)) {
 //            System.out.println("La fruta "+ nodo.getFruta().getNombre() +" esta en la Categoria " + nodo.getFruta().getCategoria());
-            System.out.println(nodo.getFruta());
+            System.out.println("Se encontro en: "+nodo.getFruta());
         }
 //        System.out.println("Categoria buscada: " + categoria + " categoria Nodo: " + nodo.getFruta().getCategoria());
+        buscarPorNombreRecursivo(nodo.getIzquierdo(), nombre);
+        
+        buscarPorNombreRecursivo(nodo.getMedio(), nombre);
 
-        mostrarPorNombreRecursivo(nodo.getMedio(), nombre);
-
-        mostrarPorNombreRecursivo(nodo.getDerecho(), nombre);
+        buscarPorNombreRecursivo(nodo.getDerecho(), nombre);
+ 
     }
 
     public void mostrarPorCategoria(String categoria) {
