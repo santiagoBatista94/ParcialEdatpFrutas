@@ -31,6 +31,6 @@ public class Fruta {
 
     @Override
     public String toString() {
-        return nombre + " (" + categoria + ")";
+        return "(" +nombre + " , " + categoria + ")";
     }
 }
