@@ -45,28 +45,6 @@ public class ArbolTernario {
         return nodo;
     }
 
-//    public void buscarPorNombre(String nombre) {
-//        buscarPorNombreRecursivo(raiz, nombre);
-//    }
-//
-//    private void buscarPorNombreRecursivo(NodoTernario nodo, String nombre) {
-//        if (nodo == null) {
-//           
-//            return;
-//        }
-//
-//        if (nodo.getFruta().getNombre().equals(nombre)) {
-////            System.out.println("La fruta "+ nodo.getFruta().getNombre() +" esta en la Categoria " + nodo.getFruta().getCategoria());
-//            System.out.println("Se encontro en: "+nodo.getFruta());
-//        }
-////        System.out.println("Categoria buscada: " + categoria + " categoria Nodo: " + nodo.getFruta().getCategoria());
-//        buscarPorNombreRecursivo(nodo.getIzquierdo(), nombre);
-//        
-//        buscarPorNombreRecursivo(nodo.getMedio(), nombre);
-//
-//        buscarPorNombreRecursivo(nodo.getDerecho(), nombre);
-// 
-//    }
     public void buscarPorNombre(String nombre) {
         boolean frutaEncontrada = buscarPorNombreRecursivo(raiz, nombre);
 
@@ -79,12 +57,12 @@ public class ArbolTernario {
         if (nodo == null) {
             return false;
         }
-
+// comparacion de valores de fruta
         if (nodo.getFruta().getNombre().equals(nombre)) {
             System.out.println("Se encontro en: " + nodo.getFruta());
             return true;
         }
-
+// busqueda recursiva
         boolean izquierdo = buscarPorNombreRecursivo(nodo.getIzquierdo(), nombre);
         boolean medio = buscarPorNombreRecursivo(nodo.getMedio(), nombre);
         boolean derecho = buscarPorNombreRecursivo(nodo.getDerecho(), nombre);
@@ -100,14 +78,13 @@ public class ArbolTernario {
         if (nodo == null) {
             return;
         }
-
-        mostrarPorCategoriaRecursivo(nodo.getIzquierdo(), categoria);
-
+// comparacion de valores de Categoria
         if (nodo.getFruta().getCategoria().equals(categoria)) {
             System.out.println(nodo.getFruta().getNombre());
         }
-//        System.out.println("Categoria buscada: " + categoria + " categoria Nodo: " + nodo.getFruta().getCategoria());
 
+// busqueda recursiva
+        mostrarPorCategoriaRecursivo(nodo.getIzquierdo(), categoria);
         mostrarPorCategoriaRecursivo(nodo.getMedio(), categoria);
 
         mostrarPorCategoriaRecursivo(nodo.getDerecho(), categoria);
